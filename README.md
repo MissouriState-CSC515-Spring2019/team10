@@ -2,7 +2,8 @@
 ### Carmen Creswell, Hailey Martinelli, Kristopher Kvenvold, Tiffany Wortham
 
 ---
-[Project Requirements](ProjectRequirements.md)
+[Project Requirements](ProjectRequirements.md)  
+[React READ ME](ReactREADME.md)
 
 ---
 ### Details
