@@ -17,7 +17,9 @@
 
 ---
 ### How To Run
-`TODO`
+1. `npm install` (to install React)
+2. `npm audit fix` (if npm install finds vulnerabilities)
+3. `npm start` (to run React)
 
 ---
 ### Progress
