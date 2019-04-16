@@ -8,7 +8,10 @@
 ---
 ### Details
 
-**API:** [Astronomical Applications API v2.2.0](https://aa.usno.navy.mil/data/docs/api.php#earthview-map)  
+**API:** [Astronomical Applications API v2.2.0](https://aa.usno.navy.mil/data/docs/api.php)  
+ * [Sun and Moon Data](https://aa.usno.navy.mil/data/docs/api.php#rstt)
+ * [Solar Eclipse Calculator](https://aa.usno.navy.mil/data/docs/api.php#soleclipse)
+
 **Framework:** React  
 **Views:** 
 1. Sunrise and sunset.
