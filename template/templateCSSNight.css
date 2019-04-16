@@ -1,0 +1,194 @@
+@charset "utf-8";
+
+/*======================================
+Fonts
+======================================*/
+
+/*--------------------------------------
+Bree Serif
+--------------------------------------*/
+
+/*Normal*/
+@font-face {
+    font-family: "Bree Serif";
+    font-weight: normal;
+    font-style: normal;
+    src: url("src/font/BreeSerif-Regular.ttf");
+}
+
+/*---------------------------------------
+Heebo
+--------------------------------------*/
+/*Thin Font*/
+@font-face {
+    font-family: "Heebo";
+    font-weight: 100;
+    font-style: normal;
+    src: url("src/font/Heebo-Thin.ttf");
+}
+
+/*Light Font*/
+@font-face {
+    font-family: "Heebo";
+    font-weight: 300;
+    font-style: normal;
+    src: url("src/font/Heebo-Light.ttf");
+}
+
+/*Normal Font*/
+@font-face {
+    font-family: "Heebo";
+    font-weight: normal;
+    font-style: normal;
+    src: url("src/font/Heebo-Regular.ttf");
+}
+
+/*Medium Font*/
+@font-face {
+    font-family: "Heebo";
+    font-weight: 500;
+    font-style: normal;
+    src: url("src/font/Heebo-Medium.ttf");
+}
+
+/*Bold Font*/
+@font-face {
+    font-family: "Heebo";
+    font-weight: 700;
+    font-style: normal;
+    src: url("src/font/Heebo-Bold.ttf");
+}
+
+/*Extra Bold Font*/
+@font-face {
+    font-family: "Heebo";
+    font-weight: 800;
+    font-style: normal;
+    src: url("src/font/Heebo-ExtraBold.ttf");
+}
+
+/*Black Font*/
+@font-face {
+    font-family: "Heebo";
+    font-weight: 900;
+    font-style: normal;
+    src: url("src/font/Heebo-Black.ttf");
+}
+
+
+/*======================================
+Colors
+======================================*/
+:root {
+
+    /*Background*/
+    --document-backgroundColor: #000a12;
+    --header-footer-backgroundColor: #00003b;
+    --content-backgroundColor: #000066;
+    --button-backgroundColor: #263238;
+    --button-backgroundHoverColor: #000a12;
+    --button-backgroundActiveColor: #4f5b62;
+
+    /*Font*/
+    --document-fontColor: #FFFFFF;
+    --header-footer-fontColor: #FFFFFF;
+    --button-fontColor: #FFFFFF;
+    --button-fontHoverColor: #FFFFFF;
+    --button-fontActiveColor: #000000;
+}
+
+/*======================================
+Body
+======================================*/
+
+html {
+    font-size: 100%;
+    font-family: Heebo, sans-serif;
+}
+
+body {
+    background-color: var(--document-backgroundColor);
+    color: var(--document-fontColor);
+}
+
+.container {
+    width: 80%;
+    max-width: 1600px;
+    min-width: 600px;
+    margin: auto;
+    padding: 2%;
+    color: var(--header-footer-fontColor);
+}
+
+.header {
+    background: var(--header-footer-backgroundColor);
+    padding: 10px;
+    border-radius: 20px 20px 0 0;
+    text-align: center;
+    font-size: 3em;
+    font-weight: bolder;
+}
+
+.navigation {
+    background: var(--content-backgroundColor);
+    text-align: center;
+    margin: auto;
+}
+
+.content {
+    padding: 5%;
+    background: var(--content-backgroundColor);
+    color: var(--document-fontColor);
+    font-family: 'Bree Serif', serif;
+    text-align: center;
+    font-size: 2.5em;
+
+}
+
+.footer {
+    font-weight: 300;
+    background: var(--header-footer-backgroundColor);
+    color: var(--header-footer-fontColor);
+    padding: 10px;
+    border-radius: 0 0 20px 20px;
+    text-align: center;
+}
+
+/*======================================
+Parts
+======================================*/
+button {
+    font-family: Heebo, sans-serif;
+    font-size: 1.5em;
+    font-weight: 300;
+    padding: 0.5em 2em;
+    background-color: var(--button-backgroundColor);
+    color: var(--button-fontColor);
+    border: none;
+    border-radius: 0 0 1em 1em;
+    margin: 0 1em 0 1em;
+}
+
+button:hover {
+    background-color: var(--button-backgroundHoverColor);
+    color: var(--button-fontHoverColor);
+}
+
+button:active {
+    background-color: var(--button-backgroundActiveColor);
+    color: var(--button-fontActiveColor);
+}
+
+button:focus {
+    outline: 0;
+}
+
+
+div#eclipseHolder {
+    margin: 0 10% 0 10%;
+    text-align: left;
+}
+
+ul {
+    font-size: 0.75em;
+}
