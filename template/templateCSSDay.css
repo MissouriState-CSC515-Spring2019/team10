@@ -13,7 +13,7 @@ Bree Serif
     font-family: "Bree Serif";
     font-weight: normal;
     font-style: normal;
-    src: url(/font/BreeSerif-Regular.ttf);
+    src: url("src/font/BreeSerif-Regular.ttf");
 }
 
 /*---------------------------------------
@@ -24,7 +24,7 @@ Heebo
     font-family: "Heebo";
     font-weight: 100;
     font-style: normal;
-    src: url("font/Heebo-Thin.ttf");
+    src: url("src/font/Heebo-Thin.ttf");
 }
 
 /*Light Font*/
@@ -32,7 +32,7 @@ Heebo
     font-family: "Heebo";
     font-weight: 300;
     font-style: normal;
-    src: url("font/Heebo-Light.ttf");
+    src: url("src/font/Heebo-Light.ttf");
 }
 
 /*Normal Font*/
@@ -40,7 +40,7 @@ Heebo
     font-family: "Heebo";
     font-weight: normal;
     font-style: normal;
-    src: url("font/Heebo-Regular.ttf");
+    src: url("src/font/Heebo-Regular.ttf");
 }
 
 /*Medium Font*/
@@ -48,7 +48,7 @@ Heebo
     font-family: "Heebo";
     font-weight: 500;
     font-style: normal;
-    src: url("font/Heebo-Medium.ttf");
+    src: url("src/font/Heebo-Medium.ttf");
 }
 
 /*Bold Font*/
@@ -56,7 +56,7 @@ Heebo
     font-family: "Heebo";
     font-weight: 700;
     font-style: normal;
-    src: url("font/Heebo-Bold.ttf");
+    src: url("src/font/Heebo-Bold.ttf");
 }
 
 /*Extra Bold Font*/
@@ -64,7 +64,7 @@ Heebo
     font-family: "Heebo";
     font-weight: 800;
     font-style: normal;
-    src: url("font/Heebo-ExtraBold.ttf");
+    src: url("src/font/Heebo-ExtraBold.ttf");
 }
 
 /*Black Font*/
@@ -72,7 +72,7 @@ Heebo
     font-family: "Heebo";
     font-weight: 900;
     font-style: normal;
-    src: url("font/Heebo-Black.ttf");
+    src: url("src/font/Heebo-Black.ttf");
 }
 
 /*======================================
@@ -81,12 +81,12 @@ Colors
 :root {
 
     /*Background*/
-    --document-backgroundColor: #424242;
+    --document-backgroundColor: #455a64;
     --header-footer-backgroundColor: #0077c2;
     --content-backgroundColor: #80d6ff;
-    --button-backgroundColor: #616161;
-    --button-backgroundHoverColor: #1b1b1b;
-    --button-backgroundActiveColor: #a4a4a4;
+    --button-backgroundColor: #37474f;
+    --button-backgroundHoverColor: #102027;
+    --button-backgroundActiveColor: #62727b;
 
     /*Font*/
     --document-fontColor: #000000;
