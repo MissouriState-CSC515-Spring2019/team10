@@ -9,8 +9,10 @@
 ### Details
 
 **API:** [Astronomical Applications API v2.2.0](https://aa.usno.navy.mil/data/docs/api.php)  
- * [Sun and Moon Data](https://aa.usno.navy.mil/data/docs/api.php#rstt)
- * [Solar Eclipse Calculator](https://aa.usno.navy.mil/data/docs/api.php#soleclipse)
+ * [Sun and Moon Data](https://aa.usno.navy.mil/data/docs/api.php#rstt)  
+   * `https://api.usno.navy.mil/rstt/oneday?date=MM/DD/YYYY&loc=Springfield, Mo`
+ * [Solar Eclipse Calculator](https://aa.usno.navy.mil/data/docs/api.php#soleclipse)  
+   * `https://api.usno.navy.mil/eclipses/solar?year=YEAR`
 
 **Framework:** React  
 **Views:** 
