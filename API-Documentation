@@ -1,0 +1,29 @@
+# API Documentation
+
+## Header
+`<span id="dateHeader">` The date for this should come from a global date variable.
+If the date is added via the URL as a `localhost:####/MM-DD-YYYY` the global date should be updated to that date.
+
+## Navigation
+* `<button id="nav-left-button">` Should link to the sun page.
+* `<button id="nav-center-button>` Should link to the moon page.
+* `<button id="nav-right-button">` Should link to the eclipse page.
+
+## Sun
+#### Sunrise
+* `<div id="sunrise">` The sunrise time comes from the API using
+`https://api.usno.navy.mil/rstt/oneday?date=MM/DD/YYYY&loc=Springfield, MO`.
+The data will be in the following section of the JSON
+`sundata":[{"phen":"R", "time":"HH:MM p.p. DT"},`. The DT at the end should be removed.
+The date used for the API call should be from the global date.
+
+#### Sunset
+* `<div id="sunset">` The sunset time comes from the API using
+`https://api.usno.navy.mil/rstt/oneday?date=MM/DD/YYYY&loc=Springfield, MO`.
+The data will be in the following section of the JSON
+`sundata":[{"phen":"S", "time":"HH:MM p.p. DT"},`. The DT at the end should be removed.
+The date used for the API call should be from the global date.
+
+## Moon
+
+## Eclipse
