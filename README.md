@@ -3,6 +3,7 @@
 
 ---
 [Project Requirements](ProjectRequirements.md)  
+[API Documentation](API-Documentation.md)  
 [React READ ME](ReactREADME.md)
 
 ---

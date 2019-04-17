@@ -8,6 +8,10 @@
 <body>
 <div class="container">
     <div class="header">
+        <!--
+        * Date is pulled from current date;
+        * If the address is entered MM-DD-YYYY, current date should be updated correctly
+        -->
         <span id="dateHeader">April 16, 2019</span>
     </div>
     <div class="navigation">
@@ -16,11 +20,25 @@
         <button id="nav-right-button" onclick="window.location.href = 'templateHTMLEclipse.html'">Solar Eclipse</button>
     </div>
     <div class="content">
-        <div id="sunrise">Sunrise: 6:38 AM</div>
+        <!--
+        * The sunrise time comes from the api using
+        * 'https://api.usno.navy.mil/rstt/oneday?date=MM/DD/YYYY&loc=Springfield, MO'
+        * "sundata":[{"phen":"R", "time":"HH:MM p.p. DT"},
+        * The DT at the end should be removed.
+        * The date should be entered using the global date
+        -->
+        <div id="sunrise">Sunrise: 6:38 a.m.</div>
         <div id="sunImage">
             <img alt="The Sun" src="src/img/sun.png">
         </div>
-        <div id="sunset">Sunset: 7:79 PM</div>
+        <!--
+        * The sunset time comes from the api using
+        * 'https://api.usno.navy.mil/rstt/oneday?date=MM/DD/YYYY&loc=Springfield, MO'
+        * "sundata":[{"phen":"S", "time":"HH:MM p.p. DT"},
+        * The DT at the end should be removed.
+        * The date should be entered using the global date
+        -->
+        <div id="sunset">Sunset: 7:79 p.m.</div>
     </div>
     <div class="footer">
         <div>Missouri State University - CSC 515 - Spring 2019</div>

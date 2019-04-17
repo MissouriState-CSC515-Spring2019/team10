@@ -8,6 +8,10 @@
 <body>
 <div class="container">
     <div class="header">
+        <!--
+        * Date is pulled from current date;
+        * If the address is entered MM-DD-YYYY, current date should be updated correctly
+        -->
         <span id="dateHeader">April 16, 2019</span>
     </div>
     <div class="navigation">
@@ -19,8 +23,17 @@
         <div id="eclipseImage">
             <img alt="A Solar Eclipse" src="src/img/eclipse.png">
         </div>
+        <!--
+        * Year should be pulled from current date.
+        -->
         <div id="eclipseInYear">Eclipses in 2019</div>
         <div id="eclipseHolder">
+            <!--
+            * The eclipse list comes from the api using:
+            * 'https://api.usno.navy.mil/eclipses/solar?year=YYYY'
+            * "eclipses_in_year":[{data},{data}...]
+            * The year should be entered using the global date.
+            -->
             <ul id="eclipseData">
                 <li>Partial Solar Eclipse of 6 January 2019</li>
                 <li>Total Solar Eclipse of 2 July 2019</li>

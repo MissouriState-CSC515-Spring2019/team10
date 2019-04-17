@@ -182,6 +182,18 @@ button:focus {
     outline: 0;
 }
 
+div#moonImage {
+    background-image: url("src/img/moon.png");
+    width: 350px;
+    height: 350px;
+    margin: auto;
+}
+
+div#moonPhase {
+    font-size: 0.75em;
+    padding-top: 150px;
+}
+
 div#eclipseHolder {
     margin: 0 10% 0 10%;
     text-align: left;
