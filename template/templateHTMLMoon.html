@@ -8,6 +8,10 @@
 <body>
 <div class="container">
     <div class="header">
+        <!--
+        * Date is pulled from current date;
+        * If the address is entered MM-DD-YYYY, current date should be updated correctly.
+        -->
         <span id="dateHeader">April 16, 2019</span>
     </div>
     <div class="navigation">
@@ -16,12 +20,35 @@
         <button id="nav-right-button" onclick="window.location.href = 'templateHTMLEclipse.html'">Solar Eclipse</button>
     </div>
     <div class="content">
-        <div id="moonRise">Moon Rise: 4:49 PM</div>
+        <!--
+        * The moon rise time comes from the api using:
+        * 'https://api.usno.navy.mil/rstt/oneday?date=MM/DD/YYYY&loc=Springfield, MO'
+        * "moondata":[{"phen":"R", "time":"HH:MM p.p. DT"}
+        * The DT at the end should be removed.
+        * The date should be entered using the global date.
+        -->
+        <div id="moonRise">Moon Rise: 4:49 p.m.</div>
         <div id="moonImage">
-            <img alt="Waxing Gibbous" src="src/img/moon.png">
+            <!--            <img alt="Waxing Gibbous" src="src/img/moon.png">-->
+            <!--
+            * The moon phase comes from the api using:
+            * 'https://api.usno.navy.mil/rstt/oneday?date=MM/DD/YYYY&loc=Springfield, MO'
+            * "curphase":"PHASE"
+            * The DT at the end should be removed.
+            * The date should be entered using the global date.
+            -->
             <div id="moonPhase">Waxing Gibbous</div>
         </div>
-        <div id="moonSet">Moon Set: 5:15 AM (Apr 17)</div>
+        <!--
+        * The moon rise time comes from the api using:
+        * 'https://api.usno.navy.mil/rstt/oneday?date=MM/DD/YYYY&loc=Springfield, MO'
+        * "moondata":[{"phen":"R", "time":"HH:MM p.p. DT"}
+        * The DT at the end should be removed.
+        * The date should be entered using the global date
+        * NOTE: Moon set does not take into account the date change.
+        * Add one day to local data and concatenate to time.
+        -->
+        <div id="moonSet">Moon Set: 5:15 a.m. (06/17/2019)</div>
     </div>
     <div class="footer">
         <div>Missouri State University - CSC 515 - Spring 2019</div>
