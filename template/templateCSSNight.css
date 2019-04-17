@@ -184,7 +184,7 @@ button:focus {
 }
 
 div#moonImage {
-    background: linear-gradient(90deg, rgba(0,0,102,1) 25%, rgba(0,0,102,0) 50%), url("src/img/moon.png");
+    background: linear-gradient(90deg, rgba(0,0,102,1) 25%, rgba(0,0,102,0) 40%), url("src/img/moon.png");
     width: 350px;
     height: 350px;
     margin: auto;
