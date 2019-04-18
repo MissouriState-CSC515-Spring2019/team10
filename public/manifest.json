@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Astronomical Times",
+  "name": "Display Astronomical Times",
   "icons": [
     {
       "src": "favicon.ico",
