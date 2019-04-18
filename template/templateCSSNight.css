@@ -185,15 +185,15 @@ button:focus {
 
 div#moonImage {
     background: linear-gradient(90deg, rgba(0,0,102,1) 25%, rgba(0,0,102,0) 40%), url("src/img/moon.png");
-    width: 350px;
-    height: 350px;
+    width: 400px;
+    height: 400px;
     margin: auto;
 
 }
 
 div#moonPhase {
     font-size: 0.75em;
-    padding-top: 150px;
+    padding-top: 180px;
 }
 
 div#eclipseHolder {
