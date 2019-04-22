@@ -40,7 +40,7 @@ class MoonContent extends Component {
 				<div className="content">
 					<div id="sunrise">Moon Rise: {results.moondata[0].time}</div>
 					<div id="moonImage">
-						<div id="moonPhase">PHASE</div>
+						<div id="moonPhase">{results.closestphase.phase}</div>
 					</div>
 					<div id="sunset">Moon Set: {results.moondata[2].time}</div>
 				</div>
