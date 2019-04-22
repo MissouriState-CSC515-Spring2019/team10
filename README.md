@@ -1,5 +1,5 @@
 # Team 10
-### Carmen Creswell, Hailey Martinelli, Kristopher Kvenvold, Tiffany Wortham
+### Carmen Creswell, Kristopher Kvenvold, Hailey Martinelli, Tiffany Wortham
 
 ---
 [Project Requirements](ProjectRequirements.md)  
@@ -33,3 +33,10 @@ a. `npm audit fix` (if npm install finds vulnerabilities)
 - [ ] April 19 - Framework selected. Base project structure and tooling decided.
 - [ ] April 26 - Routing setup with static HTML/CSS views.
 - [ ] May 3 - 1 Unit and 1 E2E test working
+
+---
+### Work Distribution
+- Carmen: API calls
+- Kristopher: HTML/CSS (rewritten with React)
+- Hailey: Routing
+- Tiffany: Tests
