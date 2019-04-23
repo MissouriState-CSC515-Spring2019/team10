@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 class MoonContent extends Component {
 	constructor(props) {
@@ -11,7 +11,7 @@ class MoonContent extends Component {
 	}
 
 	componentDidMount() {
-		fetch("https://api.usno.navy.mil/rstt/oneday?date=01/01/2019&loc=Springfield,%20Mo")
+		fetch('https://api.usno.navy.mil/rstt/oneday?date=01/01/2019&loc=Springfield,%20Mo')
 			.then(res => res.json())
 			.then(
 				(results) => {
@@ -26,15 +26,22 @@ class MoonContent extends Component {
 						error
 					});
 				}
-			)
+			);
 	}
 
 	render() {
-		const { error, isLoaded, results } = this.state;
+		const {error, isLoaded, results} = this.state;
 		if (error) {
-			return <div>Error: {error.message}</div>;
+			return (
+				<div className="content">
+					<div>Error: {error.message}</div>
+				</div>
+			);
 		} else if (!isLoaded) {
-			return <div>Loading...</div>;
+			return (
+				<div className="content">
+					<div>Loading...</div>
+				</div>);
 		} else {
 			return (
 				<div className="content">
