@@ -1,27 +1,19 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
 class Navigation extends Component {
 	render() {
 		return (
 			<div className="navigation">
-				<button
-					id="nav-left-button"
-					onClick="window.location.href = 'templateHTMLSun.html'"
-				>
-					Sun Times
-				</button>
-				<button
-					id="nav-center-button"
-					onClick="window.location.href = 'templateHTMLMoon.html'"
-				>
-					Moon Times
-				</button>
-				<button
-					id="nav-right-button"
-					onClick="window.location.href = 'templateHTMLEclipse.html'"
-				>
-					Solar Eclipse
-				</button>
+				<Link to={'/sun'}>
+					<button id="nav-left-button">Sun Times</button>
+				</Link>
+				<Link to={'/moon'}>
+					<button id="nav-center-button">Moon Times</button>
+				</Link>
+				<Link to={'eclipse'}>
+					<button id="nav-right-button">Solar Eclipse</button>
+				</Link>
 			</div>
 		);
 	}

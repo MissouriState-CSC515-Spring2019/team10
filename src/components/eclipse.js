@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import eclipseImage from '../img/eclipse.png';
 
 class EclipseContent extends Component {
-	
+
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -13,7 +13,7 @@ class EclipseContent extends Component {
 	}
 
 	componentDidMount() {
-		fetch("https://api.usno.navy.mil/eclipses/solar?year=2019")
+		fetch('https://api.usno.navy.mil/eclipses/solar?year=2019')
 			.then(res => res.json())
 			.then(
 				(results) => {
@@ -28,29 +28,37 @@ class EclipseContent extends Component {
 						error
 					});
 				}
-			)
+			);
 	}
-	
+
 	render() {
-		const { error, isLoaded, results } = this.state;
+		const {error, isLoaded, results} = this.state;
 		if (error) {
-			return <div>Error: {error.message}</div>;
+			return (
+				<div className="content">
+					<div>Error: {error.message}</div>
+				</div>
+			);
 		} else if (!isLoaded) {
-			return <div>Loading...</div>;
+			return (
+				<div className="content">
+					<div>Loading...</div>
+				</div>);
 		} else {
 			return (
 				<div className="content">
 					<div id="eclipseInYear">Eclipses in 2019</div>
+					<div id="eclipseImage">
+						<img src={eclipseImage} alt={'An Eclipse'}/>
+					</div>
 					<ul>
 						{results.map(result => (
-            				<li>
+							<li>
 								{result.event}
 							</li>
 						))}
 					</ul>
-					<div id="eclipseImage">
-						<img src={eclipseImage} alt={"An Eclipse"}/>
-					</div>
+
 					<div id="eclipseHolder">
 						<ul id="eclipseData">
 						</ul>
