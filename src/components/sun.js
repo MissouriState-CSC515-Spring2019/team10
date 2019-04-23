@@ -47,11 +47,11 @@ class SunContent extends Component {
 		} else {
 			return (
 				<div className="content">
-					<div id="sunrise">Sunrise: {results.sundata[1].time}</div>
+					<div id="sunrise">Sunrise: {results.sundata[1].time.toString().slice(0,-3)}</div>
 					<div id="sunImage">
 						<img src={sunImage} alt={'The Sun'}/>
 					</div>
-					<div id="sunset">Sunset: {results.sundata[3].time}</div>
+					<div id="sunset">Sunset: {results.sundata[3].time.toString().slice(0,-3)}</div>
 				</div>
 			);
 		}
