@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import moonImage from '../img/moon.png';
 
 class MoonContent extends Component {
 	constructor(props) {
@@ -49,14 +50,14 @@ class MoonContent extends Component {
 			} else {
 				moonPhase = results.curphase;
 			}
+
 			return (
 				<div className="content">
-					<div id="sunrise">Moon Rise: {results.moondata[0].time.toString().slice(0,-3)}</div>
+					<div id="moonRise">Moon Rise: {results.moondata[0].time.toString().slice(0, -3)}</div>
 					<div id="moonImage">
-						{/*<div id="moonPhase">{results.closestphase.phase}</div>*/}
-						<div id="moonPhase">{moonPhase}</div>
+						<img src={moonImage} alt={'The Moon'}/>
 					</div>
-					<div id="sunset">Moon Set: {results.moondata[2].time.toString().slice(0,-3)}</div>
+					<div id="moonSet">Moon Set: {results.moondata[2].time.toString().slice(0, -3)}</div>
 				</div>
 			);
 		}

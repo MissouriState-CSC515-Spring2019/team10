@@ -19,7 +19,7 @@ class EclipseContent extends Component {
 				(results) => {
 					this.setState({
 						isLoaded: true,
-						results: results.eclipses_in_year
+						results: results
 					});
 				},
 				(error) => {
@@ -45,16 +45,18 @@ class EclipseContent extends Component {
 					<div>Loading...</div>
 				</div>);
 		} else {
+			const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+			let eclipseList = results.eclipses_in_year;
 			return (
 				<div className="content">
-					<div id="eclipseInYear">Eclipses in 2019</div>
+					<div id="eclipseInYear">Eclipses in {results.year}</div>
 					<div id="eclipseImage">
 						<img src={eclipseImage} alt={'An Eclipse'}/>
 					</div>
 					<ul>
-						{results.map(result => (
+						{eclipseList.map(result => (
 							<li>
-								{result.event}
+								{monthNames[result.month-1]} {result.day} - {result.event.substring(0, result.event.indexOf(' of'))}
 							</li>
 						))}
 					</ul>
