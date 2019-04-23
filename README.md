@@ -30,7 +30,7 @@ a. `npm audit fix` (if npm install finds vulnerabilities)
 ---
 ### Progress
 - [X] April 12 - Teams finalized and project decided.
-- [ ] April 19 - Framework selected. Base project structure and tooling decided.
+- [X] April 19 - Framework selected. Base project structure and tooling decided.
 - [ ] April 26 - Routing setup with static HTML/CSS views.
 - [ ] May 3 - 1 Unit and 1 E2E test working
 
