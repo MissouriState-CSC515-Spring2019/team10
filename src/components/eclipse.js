@@ -45,6 +45,7 @@ class EclipseContent extends Component {
 					<div>Loading...</div>
 				</div>);
 		} else {
+			const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 			let eclipseList = results.eclipses_in_year;
 			return (
 				<div className="content">
@@ -55,7 +56,7 @@ class EclipseContent extends Component {
 					<ul>
 						{eclipseList.map(result => (
 							<li>
-								{result.month}/{result.day}/{result.year} - {result.event.substring(0, result.event.indexOf(' of'))}
+								{monthNames[result.month-1]} {result.day} - {result.event.substring(0, result.event.indexOf(' of'))}
 							</li>
 						))}
 					</ul>
