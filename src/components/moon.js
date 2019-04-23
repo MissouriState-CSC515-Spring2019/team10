@@ -11,17 +11,22 @@ class MoonContent extends Component {
 		};
 	}
 
+	// Child = ({ match }) => (
+	// 	<div>
+	// 		<h3>Date: {match.params.dt.replace(/-/g, '/')} </h3>
+	// 	</div>
+	// );
 	componentDidMount() {
 		fetch('https://api.usno.navy.mil/rstt/oneday?date=01/01/2019&loc=Springfield,%20Mo')
 			.then(res => res.json())
 			.then(
-				(results) => {
+				results => {
 					this.setState({
 						isLoaded: true,
 						results: results
 					});
 				},
-				(error) => {
+				error => {
 					this.setState({
 						isLoaded: true,
 						error

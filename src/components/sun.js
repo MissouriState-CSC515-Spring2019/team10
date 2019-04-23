@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import sunImage from '../img/sun.png';
 
 class SunContent extends Component {
-
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -16,13 +15,13 @@ class SunContent extends Component {
 		fetch('https://api.usno.navy.mil/rstt/oneday?date=01/01/2019&loc=Springfield,%20Mo')
 			.then(res => res.json())
 			.then(
-				(results) => {
+				results => {
 					this.setState({
 						isLoaded: true,
 						results: results
 					});
 				},
-				(error) => {
+				error => {
 					this.setState({
 						isLoaded: true,
 						error
@@ -49,7 +48,11 @@ class SunContent extends Component {
 				<div className="content">
 					<div id="sunrise">Sunrise: {results.sundata[1].time.toString().slice(0,-3)}</div>
 					<div id="sunImage">
+<<<<<<< HEAD
 						<img src={sunImage} alt={'The Sun'}/>
+=======
+						<img src={sunImage} alt={'The Sun'} />
+>>>>>>> Starting url parameter code, not working yet.
 					</div>
 					<div id="sunset">Sunset: {results.sundata[3].time.toString().slice(0,-3)}</div>
 				</div>
