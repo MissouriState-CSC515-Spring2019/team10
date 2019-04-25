@@ -182,12 +182,6 @@ button:focus {
     outline: 0;
 }
 
-/*div#moonImage {*/
-/*    background: linear-gradient(90deg, rgba(0, 0, 102, 1) 25%, rgba(0, 0, 102, 0) 40%), url("./img/moon.png");*/
-/*    width: 400px;*/
-/*    height: 400px;*/
-/*    margin: auto;*/
-/*}*/
 div#moonImage {
     position: relative;
 }

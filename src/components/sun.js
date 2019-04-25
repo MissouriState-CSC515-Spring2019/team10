@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import sunImage from '../img/sun.png';
+import sunImage from '../img/Sun.png';
 
 class SunContent extends Component {
 	constructor(props) {

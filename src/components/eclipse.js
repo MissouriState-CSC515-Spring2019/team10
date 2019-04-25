@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import eclipseImage from '../img/eclipse.png';
+import eclipseImage from '../img/Eclipse.png';
 
 class EclipseContent extends Component {
 	constructor(props) {
