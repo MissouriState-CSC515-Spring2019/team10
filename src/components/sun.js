@@ -51,19 +51,19 @@ class SunContent extends Component {
 		const { error, isLoaded, results } = this.state;
 		if (error) {
 			return (
-				<div className="content">
+				<div className="contentDay">
 					<div>Error: {error.message}</div>
 				</div>
 			);
 		} else if (!isLoaded) {
 			return (
-				<div className="content">
+				<div className="contentDay">
 					<div>Loading...</div>
 				</div>
 			);
 		} else {
 			return (
-				<div className="content">
+				<div className="contentDay">
 					<div id="sunrise">
 						Sunrise: {results.sundata[1].time.toString().slice(0, -3)}
 					</div>
