@@ -17,8 +17,8 @@ class App extends Component {
 					<Navigation />
 					<Switch>
 						<Route exact path="/" component={SunContent} />
-						<Route path="/sun/:date" component={SunContent} />
-						<Route path="/moon/:date" component={MoonContent} />
+						<Route path="/sun/:date?" component={SunContent} />
+						<Route path="/moon/:date?" component={MoonContent} />
 						<Route path="/eclipse" component={EclipseContent} />
 					</Switch>
 					<Footer />
