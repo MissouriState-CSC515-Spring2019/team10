@@ -1,8 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import eclipseImage from '../img/eclipse.png';
 
 class EclipseContent extends Component {
-
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -16,13 +15,13 @@ class EclipseContent extends Component {
 		fetch('https://api.usno.navy.mil/eclipses/solar?year=2019')
 			.then(res => res.json())
 			.then(
-				(results) => {
+				results => {
 					this.setState({
 						isLoaded: true,
 						results: results
 					});
 				},
-				(error) => {
+				error => {
 					this.setState({
 						isLoaded: true,
 						error
@@ -32,7 +31,7 @@ class EclipseContent extends Component {
 	}
 
 	render() {
-		const {error, isLoaded, results} = this.state;
+		const { error, isLoaded, results } = this.state;
 		if (error) {
 			return (
 				<div className="content">
@@ -43,27 +42,41 @@ class EclipseContent extends Component {
 			return (
 				<div className="content">
 					<div>Loading...</div>
-				</div>);
+				</div>
+			);
 		} else {
-			const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+			const monthNames = [
+				'January',
+				'February',
+				'March',
+				'April',
+				'May',
+				'June',
+				'July',
+				'August',
+				'September',
+				'October',
+				'November',
+				'December'
+			];
 			let eclipseList = results.eclipses_in_year;
 			return (
 				<div className="content">
 					<div id="eclipseInYear">Eclipses in {results.year}</div>
 					<div id="eclipseImage">
-						<img src={eclipseImage} alt={'An Eclipse'}/>
+						<img src={eclipseImage} alt={'An Eclipse'} />
 					</div>
 					<ul>
 						{eclipseList.map(result => (
 							<li>
-								{monthNames[result.month-1]} {result.day} - {result.event.substring(0, result.event.indexOf(' of'))}
+								{monthNames[result.month - 1]} {result.day} -{' '}
+								{result.event.substring(0, result.event.indexOf(' of'))}
 							</li>
 						))}
 					</ul>
 
 					<div id="eclipseHolder">
-						<ul id="eclipseData">
-						</ul>
+						<ul id="eclipseData" />
 					</div>
 				</div>
 			);

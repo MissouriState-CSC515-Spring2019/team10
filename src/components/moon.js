@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import moonImage from '../img/moon.png';
 
 class MoonContent extends Component {
@@ -11,17 +11,22 @@ class MoonContent extends Component {
 		};
 	}
 
-	componentDidMount() {
-		fetch('https://api.usno.navy.mil/rstt/oneday?date=01/01/2019&loc=Springfield,%20Mo')
+	componentDidMount(props) {
+		let urlDate = this.props.match.params.date;
+		urlDate = urlDate.replace(/-/g, '/');
+
+		fetch(
+			`https://api.usno.navy.mil/rstt/oneday?date=${urlDate}&loc=Springfield,%20Mo`
+		)
 			.then(res => res.json())
 			.then(
-				(results) => {
+				results => {
 					this.setState({
 						isLoaded: true,
 						results: results
 					});
 				},
-				(error) => {
+				error => {
 					this.setState({
 						isLoaded: true,
 						error
@@ -31,7 +36,7 @@ class MoonContent extends Component {
 	}
 
 	render() {
-		const {error, isLoaded, results} = this.state;
+		const { error, isLoaded, results } = this.state;
 		if (error) {
 			return (
 				<div className="content">
@@ -42,7 +47,8 @@ class MoonContent extends Component {
 			return (
 				<div className="content">
 					<div>Loading...</div>
-				</div>);
+				</div>
+			);
 		} else {
 			let moonPhase;
 			if (results.curphase === undefined) {
@@ -53,11 +59,15 @@ class MoonContent extends Component {
 
 			return (
 				<div className="content">
-					<div id="moonRise">Moon Rise: {results.moondata[0].time.toString().slice(0, -3)}</div>
-					<div id="moonImage">
-						<img src={moonImage} alt={'The Moon'}/>
+					<div id="moonRise">
+						Moon Rise: {results.moondata[0].time.toString().slice(0, -3)}
 					</div>
-					<div id="moonSet">Moon Set: {results.moondata[2].time.toString().slice(0, -3)}</div>
+					<div id="moonImage">
+						<img src={moonImage} alt={'The Moon'} />
+					</div>
+					<div id="moonSet">
+						Moon Set: {results.moondata[2].time.toString().slice(0, -3)}
+					</div>
 				</div>
 			);
 		}
