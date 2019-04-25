@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import sunImage from '../img/Sun.png';
 
 class SunContent extends Component {
@@ -48,7 +48,7 @@ class SunContent extends Component {
 	}
 
 	render() {
-		const { error, isLoaded, results } = this.state;
+		const {error, isLoaded, results} = this.state;
 		if (error) {
 			return (
 				<div className="contentDay">
@@ -58,7 +58,8 @@ class SunContent extends Component {
 		} else if (!isLoaded) {
 			return (
 				<div className="contentDay">
-					<div>Loading...</div>
+					<div id="loader"></div>
+					<div id="loading">LOADING</div>
 				</div>
 			);
 		} else {
@@ -68,7 +69,7 @@ class SunContent extends Component {
 						Sunrise: {results.sundata[1].time.toString().slice(0, -3)}
 					</div>
 					<div id="sunImage">
-						<img src={sunImage} alt={'The Sun'} />
+						<img src={sunImage} alt={'The Sun'}/>
 						{/* <img src={sunImage} alt={'The Sun'} />
 						<img src={sunImage} alt={'The Sun'} /> */}
 					</div>

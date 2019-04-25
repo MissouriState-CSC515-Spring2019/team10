@@ -49,7 +49,8 @@ class EclipseContent extends Component {
 		} else if (!isLoaded) {
 			return (
 				<div className="contentNight">
-					<div>Loading...</div>
+					<div id="loader"></div>
+					<div id="loading">LOADING</div>
 				</div>
 			);
 		} else {
