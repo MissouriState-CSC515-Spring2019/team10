@@ -26,7 +26,7 @@ class SunContent extends Component {
 				'/' +
 				today.getFullYear();
 		}
-		console.log(urlDate);
+
 		fetch(
 			`https://api.usno.navy.mil/rstt/oneday?date=${urlDate}&loc=Springfield,%20Mo`
 		)

@@ -11,8 +11,16 @@ class EclipseContent extends Component {
 		};
 	}
 
-	componentDidMount() {
-		fetch('https://api.usno.navy.mil/eclipses/solar?year=2019')
+	componentDidMount(props) {
+		let urlYear;
+		if (this.props.match.params.year !== undefined) {
+			urlYear = this.props.match.params.year;
+		} else {
+			let today = new Date();
+			urlYear = today.getFullYear();
+		}
+
+		fetch(`https://api.usno.navy.mil/eclipses/solar?year=${urlYear}`)
 			.then(res => res.json())
 			.then(
 				results => {
