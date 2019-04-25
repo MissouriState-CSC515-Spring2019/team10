@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import eclipseImage from '../img/Eclipse.png';
 
 class EclipseContent extends Component {
@@ -39,16 +39,16 @@ class EclipseContent extends Component {
 	}
 
 	render() {
-		const { error, isLoaded, results } = this.state;
+		const {error, isLoaded, results} = this.state;
 		if (error) {
 			return (
-				<div className="content">
+				<div className="contentNight">
 					<div>Error: {error.message}</div>
 				</div>
 			);
 		} else if (!isLoaded) {
 			return (
-				<div className="content">
+				<div className="contentNight">
 					<div>Loading...</div>
 				</div>
 			);
@@ -69,10 +69,10 @@ class EclipseContent extends Component {
 			];
 			let eclipseList = results.eclipses_in_year;
 			return (
-				<div className="content">
+				<div className="contentNight">
 					<div id="eclipseInYear">Eclipses in {results.year}</div>
 					<div id="eclipseImage">
-						<img src={eclipseImage} alt={'An Eclipse'} />
+						<img src={eclipseImage} alt={'An Eclipse'}/>
 					</div>
 					<ul>
 						{eclipseList.map(result => (
@@ -84,7 +84,7 @@ class EclipseContent extends Component {
 					</ul>
 
 					<div id="eclipseHolder">
-						<ul id="eclipseData" />
+						<ul id="eclipseData"/>
 					</div>
 				</div>
 			);

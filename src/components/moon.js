@@ -58,13 +58,13 @@ class MoonContent extends Component {
 		const {error, isLoaded, results} = this.state;
 		if (error) {
 			return (
-				<div className="content">
+				<div className="contentNight">
 					<div>Error: {error.message}</div>
 				</div>
 			);
 		} else if (!isLoaded) {
 			return (
-				<div className="content">
+				<div className="contentNight">
 					<div>Loading...</div>
 				</div>
 			);
@@ -98,7 +98,7 @@ class MoonContent extends Component {
 			}
 
 			return (
-				<div className="content">
+				<div className="contentNight">
 					<div id="moonRise">
 						Moon Rise: {results.moondata[0].time.toString().slice(0, -3)}
 					</div>
