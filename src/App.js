@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Header from './components/header.js';
 import Navigation from './components/navigation.js';
 import Footer from './components/footer.js';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import SunContent from './components/sun.js';
 import MoonContent from './components/moon.js';
 import EclipseContent from './components/eclipse.js';

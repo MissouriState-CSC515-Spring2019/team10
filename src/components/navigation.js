@@ -11,7 +11,7 @@ class Navigation extends Component {
 				<Link to={'/moon'}>
 					<button id="nav-center-button">Moon Times</button>
 				</Link>
-				<Link to={'eclipse'}>
+				<Link to={'/eclipse'}>
 					<button id="nav-right-button">Solar Eclipse</button>
 				</Link>
 			</div>

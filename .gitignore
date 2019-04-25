@@ -139,3 +139,6 @@ typings/
 .env.development.local
 .env.test.local
 .env.production.local
+
+### Other
+/template/src/img/work/

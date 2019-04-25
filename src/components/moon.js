@@ -76,6 +76,7 @@ class MoonContent extends Component {
 					</div>
 					<div id="moonImage">
 						<img src={moonImage} alt={'The Moon'} />
+						<div id="moonPhase">{moonPhase}</div>
 					</div>
 					<div id="moonSet">
 						Moon Set: {results.moondata[2].time.toString().slice(0, -3)}
