@@ -1,5 +1,12 @@
-import React, { Component } from 'react';
-import moonImage from '../img/moon.png';
+import React, {Component} from 'react';
+import NewMoon from '../img/1NewMoon.png';
+import WaxingCrescent from '../img/2WaxingCrescent.png';
+import FirstQuarter from '../img/3FirstQuarter.png';
+import WaxingGibbous from '../img/4WaxingGibbous.png';
+import FullMoon from '../img/5FullMoon.png';
+import WaningGibbous from '../img/6WaningGibbous.png';
+import LastQuarter from '../img/7LastQuarter.png';
+import WaningCrescent from '../img/8WaningCrescent.png';
 
 class MoonContent extends Component {
 	constructor(props) {
@@ -48,7 +55,7 @@ class MoonContent extends Component {
 	}
 
 	render() {
-		const { error, isLoaded, results } = this.state;
+		const {error, isLoaded, results} = this.state;
 		if (error) {
 			return (
 				<div className="content">
@@ -69,13 +76,34 @@ class MoonContent extends Component {
 				moonPhase = results.curphase;
 			}
 
+			let moonImage;
+			if (moonPhase === 'New Moon') {
+				moonImage = NewMoon;
+			} else if (moonPhase === 'Waxing Crescent') {
+				moonImage = WaxingCrescent;
+			} else if (moonPhase === 'First Quarter') {
+				moonImage = FirstQuarter;
+			} else if (moonPhase === 'Waxing Gibbous') {
+				moonImage = WaxingGibbous;
+			} else if (moonPhase === 'Full Moon') {
+				moonImage = FullMoon;
+			} else if (moonPhase === 'Waning Gibbous') {
+				moonImage = WaningGibbous;
+			} else if (moonPhase === 'Last Quarter') {
+				moonImage = LastQuarter;
+			} else if (moonPhase === 'Waning Crescent') {
+				moonImage = WaningCrescent;
+			} else {
+				moonImage = FullMoon;
+			}
+
 			return (
 				<div className="content">
 					<div id="moonRise">
 						Moon Rise: {results.moondata[0].time.toString().slice(0, -3)}
 					</div>
 					<div id="moonImage">
-						<img src={moonImage} alt={'The Moon'} />
+						<img src={moonImage} alt={'The Moon'}/>
 						<div id="moonPhase">{moonPhase}</div>
 					</div>
 					<div id="moonSet">
