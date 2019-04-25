@@ -188,10 +188,15 @@ button:focus {
 /*    height: 400px;*/
 /*    margin: auto;*/
 /*}*/
+div#moonImage {
+    position: relative;
+}
 
 div#moonPhase {
+    position: absolute;
+    bottom: 190px;
+    left: 265px;
     font-size: 0.75em;
-    padding-top: 180px;
 }
 
 div#eclipseHolder {
