@@ -63,6 +63,7 @@ class SunContent extends Component {
 				</div>
 			);
 		} else {
+			console.log("results: ", results);
 			return (
 				<div className="contentDay">
 					<div id="sunrise">

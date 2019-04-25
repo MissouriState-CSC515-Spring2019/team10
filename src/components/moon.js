@@ -70,10 +70,11 @@ class MoonContent extends Component {
 				</div>
 			);
 		} else {
-			let moonPhase;
-			if (results.curphase === undefined) {
+			console.log(results);
+			let moonPhase; 
+			if (!results.curphase) {
 				moonPhase = results.closestphase.phase;
-			} else {
+			} else { 
 				moonPhase = results.curphase;
 			}
 
