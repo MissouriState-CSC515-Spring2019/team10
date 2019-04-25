@@ -12,9 +12,21 @@ class SunContent extends Component {
 	}
 
 	componentDidMount(props) {
-		let urlDate = this.props.match.params.date;
-		urlDate = urlDate.replace(/-/g, '/');
-
+		let urlDate;
+		if (this.props.match.params.date !== undefined) {
+			urlDate = this.props.match.params.date;
+			urlDate = urlDate.replace(/-/g, '/');
+		} else {
+			let today = new Date();
+			urlDate =
+				today.getMonth() +
+				1 +
+				'/' +
+				today.getDate() +
+				'/' +
+				today.getFullYear();
+		}
+		console.log(urlDate);
 		fetch(
 			`https://api.usno.navy.mil/rstt/oneday?date=${urlDate}&loc=Springfield,%20Mo`
 		)
