@@ -19,7 +19,7 @@ class App extends Component {
 						<Route exact path="/" component={SunContent} />
 						<Route path="/sun/:date?" component={SunContent} />
 						<Route path="/moon/:date?" component={MoonContent} />
-						<Route path="/eclipse" component={EclipseContent} />
+						<Route path="/eclipse/:year?" component={EclipseContent} />
 					</Switch>
 					<Footer />
 				</div>
