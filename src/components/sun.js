@@ -49,10 +49,14 @@ class SunContent extends Component {
 					<div id="sunrise">Sunrise: {results.sundata[1].time.toString().slice(0,-3)}</div>
 					<div id="sunImage">
 <<<<<<< HEAD
+<<<<<<< HEAD
 						<img src={sunImage} alt={'The Sun'}/>
 =======
 						<img src={sunImage} alt={'The Sun'} />
 >>>>>>> Starting url parameter code, not working yet.
+=======
+						<img src={sunImage} alt={'The Sun'} />
+>>>>>>> 77182ca5e4e850fc8c0e707a789ec9f470238870
 					</div>
 					<div id="sunset">Sunset: {results.sundata[3].time.toString().slice(0,-3)}</div>
 				</div>
