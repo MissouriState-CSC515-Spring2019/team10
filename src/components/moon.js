@@ -11,14 +11,7 @@ import WaningCrescent from '../img/8WaningCrescent.png';
 class MoonContent extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			error: null,
-			isLoaded: false,
-			results: []
-		};
-	}
 
-	componentDidMount(props) {
 		let urlDate;
 		if (this.props.match.params.date !== undefined) {
 			urlDate = this.props.match.params.date;
@@ -33,9 +26,36 @@ class MoonContent extends Component {
 				'/' +
 				today.getFullYear();
 		}
+		
+		this.state = {
+			error: null,
+			isLoaded: false,
+			results: [],
+			date: urlDate
+		};
+	}
 
+	componentDidMount(props) {
+		// let urlDate;
+		// if (this.props.match.params.date !== undefined) {
+		// 	urlDate = this.props.match.params.date;
+		// 	urlDate = urlDate.replace(/-/g, '/');
+		// } else {
+		// 	let today = new Date();
+		// 	urlDate =
+		// 		today.getMonth() +
+		// 		1 +
+		// 		'/' +
+		// 		today.getDate() +
+		// 		'/' +
+		// 		today.getFullYear();
+		// }
+
+		console.log(this.state.date);
 		fetch(
-			`https://api.usno.navy.mil/rstt/oneday?date=${urlDate}&loc=Springfield,%20Mo`
+			`https://api.usno.navy.mil/rstt/oneday?date=${
+				this.state.date
+			}&loc=Springfield,%20Mo`
 		)
 			.then(res => res.json())
 			.then(

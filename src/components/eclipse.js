@@ -4,14 +4,7 @@ import eclipseImage from '../img/Eclipse.png';
 class EclipseContent extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			error: null,
-			isLoaded: false,
-			results: []
-		};
-	}
 
-	componentDidMount(props) {
 		let urlYear;
 		if (this.props.match.params.year !== undefined) {
 			urlYear = this.props.match.params.year;
@@ -20,7 +13,24 @@ class EclipseContent extends Component {
 			urlYear = today.getFullYear();
 		}
 
-		fetch(`https://api.usno.navy.mil/eclipses/solar?year=${urlYear}`)
+		this.state = {
+			error: null,
+			isLoaded: false,
+			results: [],
+			year: urlYear
+		};
+	}
+
+	componentDidMount() {
+		// let urlYear;
+		// if (this.props.match.params.year !== undefined) {
+		// 	urlYear = this.props.match.params.year;
+		// } else {
+		// 	let today = new Date();
+		// 	urlYear = today.getFullYear();
+		// }
+
+		fetch(`https://api.usno.navy.mil/eclipses/solar?year=${this.state.year}`)
 			.then(res => res.json())
 			.then(
 				results => {
