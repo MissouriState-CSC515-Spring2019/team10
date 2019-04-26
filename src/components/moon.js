@@ -34,7 +34,7 @@ class MoonContent extends Component {
 				today.getFullYear();
 		}
 
-		document.title = "Moon Time - " + urlDate;
+		document.title = "Moon Times - " + urlDate;
 
 		fetch(
 			`https://api.usno.navy.mil/rstt/oneday?date=${urlDate}&loc=Springfield,%20Mo`
