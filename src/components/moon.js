@@ -108,6 +108,17 @@ class MoonContent extends Component {
 					moonSet = results.moondata[i].time.toString().slice(0, -3)
 				}
 			}
+
+			let moonSetNextDay;
+
+			 if (moonSet.slice(-4) === "a.m.") {
+			 	let nextDay = new Date(results.year,Number(results.month-1),results.day);
+			 	nextDay.setDate(nextDay.getDate()+1);
+			 	moonSetNextDay = '(' + Number(nextDay.getMonth()+1) + '/' + nextDay.getDate() + ')';
+			 } else {
+			 	moonSetNextDay = "";
+			 }
+
 			return (
 				<div className="contentNight">
 					<div id="moonRise">
@@ -118,7 +129,7 @@ class MoonContent extends Component {
 						<div id="moonPhase">{moonPhase}</div>
 					</div>
 					<div id="moonSet">
-						Moon Set: {moonSet}
+						Moon Set: {moonSet} {moonSetNextDay}
 					</div>
 				</div>
 			);
