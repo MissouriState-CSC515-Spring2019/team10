@@ -20,6 +20,8 @@ class EclipseContent extends Component {
 			urlYear = today.getFullYear();
 		}
 
+		document.title = "Eclipse in " + urlYear;
+
 		fetch(`https://api.usno.navy.mil/eclipses/solar?year=${urlYear}`)
 			.then(res => res.json())
 			.then(
