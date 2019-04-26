@@ -10,11 +10,12 @@ class SunContent extends Component {
 			error: null,
 			isLoaded: false,
 			results: [],
-			date: '01/01/17'
+			date: null
 		};
 	}
 
 	componentDidMount() {
+		
 		if (this.props.match.params.date !== undefined) {
 			window.urlDate = this.props.match.params.date;
 			window.urlDate = window.urlDate.replace(/-/g, '/');
@@ -30,7 +31,7 @@ class SunContent extends Component {
 		}
 		let date = window.urlDate;
 
-		document.title = "Sun Times - " + urlDate;
+		document.title = "Sun Times - " + date;
 
 		fetch(
 			`https://api.usno.navy.mil/rstt/oneday?date=${date}&loc=Springfield,%20Mo`

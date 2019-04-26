@@ -12,7 +12,6 @@ import DateContent from './date.js';
 class MoonContent extends Component {
 	constructor(props) {
 		super(props);
-		
 		this.state = {
 			error: null,
 			isLoaded: false,
@@ -37,7 +36,7 @@ class MoonContent extends Component {
 		}
     
 		let date = window.urlDate;
-		document.title = "Moon Times - " + urlDate;
+		document.title = "Moon Times - " + date;
 
 		fetch(
 			`https://api.usno.navy.mil/rstt/oneday?date=${
