@@ -70,7 +70,7 @@ class MoonContent extends Component {
 				</div>
 			);
 		} else {
-			let moonPhase;
+			let moonPhase; 
 			if (results.curphase === undefined) {
 				moonPhase = results.closestphase.phase;
 			} else {
@@ -98,17 +98,27 @@ class MoonContent extends Component {
 				moonImage = FullMoon;
 			}
 
+			let moonRise, moonSet;
+
+			for (let i = 0; i < results.moondata.length; i++) {
+				if (results.moondata[i].phen === "R") {
+					moonRise = results.moondata[i].time.toString().slice(0, -3);
+				}
+				if (results.moondata[i].phen === "S") {
+					moonSet = results.moondata[i].time.toString().slice(0, -3)
+				}
+			}
 			return (
 				<div className="contentNight">
 					<div id="moonRise">
-						Moon Rise: {results.moondata[0].time.toString().slice(0, -3)}
+						Moon Rise: {moonRise}
 					</div>
 					<div id="moonImage">
 						<img src={moonImage} alt={'The Moon'}/>
 						<div id="moonPhase">{moonPhase}</div>
 					</div>
 					<div id="moonSet">
-						Moon Set: {results.moondata[2].time.toString().slice(0, -3)}
+						Moon Set: {moonSet}
 					</div>
 				</div>
 			);
