@@ -188,11 +188,12 @@ div#moonImage {
 
 div#moonPhase {
     position: absolute;
-    bottom: 190px;
-    left: 265px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
     font-size: 0.75em;
     border-radius: 1em;
-    background: rgba(0,0,102,0.4);
+    background: rgba(0, 0, 102, 0.4);
     padding: 0.1em 0.3em;
 }
 
