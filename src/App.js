@@ -13,8 +13,8 @@ class App extends Component {
 		return (
 			<Router>
 				<div className="container">
-					<Header />
-					<Navigation />
+					{/* <Header />
+					<Navigation /> */}
 					<Switch>
 						<Route exact path="/" component={SunContent} />
 						<Route path="/sun/:date?" component={SunContent} />

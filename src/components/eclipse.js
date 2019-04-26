@@ -1,42 +1,36 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import eclipseImage from '../img/Eclipse.png';
+import DateContent from './date.js';
 
 class EclipseContent extends Component {
 	constructor(props) {
 		super(props);
 
-		let urlYear;
-		if (this.props.match.params.year !== undefined) {
-			urlYear = this.props.match.params.year;
-		} else {
-			let today = new Date();
-			urlYear = today.getFullYear();
-		}
-
 		this.state = {
 			error: null,
 			isLoaded: false,
 			results: [],
-			year: urlYear
+			year: null
 		};
 	}
 
 	componentDidMount() {
-		// let urlYear;
-		// if (this.props.match.params.year !== undefined) {
-		// 	urlYear = this.props.match.params.year;
-		// } else {
-		// 	let today = new Date();
-		// 	urlYear = today.getFullYear();
-		// }
+		if (this.props.match.params.year !== undefined) {
+			window.urlYear = this.props.match.params.year;
+		} else {
+			let today = new Date();
+			window.urlYear = today.getFullYear();
+		}
+		let year = window.urlYear;
 
-		fetch(`https://api.usno.navy.mil/eclipses/solar?year=${this.state.year}`)
+		fetch(`https://api.usno.navy.mil/eclipses/solar?year=${year}`)
 			.then(res => res.json())
 			.then(
 				results => {
 					this.setState({
 						isLoaded: true,
-						results: results
+						results: results,
+						year: year
 					});
 				},
 				error => {
@@ -49,7 +43,7 @@ class EclipseContent extends Component {
 	}
 
 	render() {
-		const {error, isLoaded, results} = this.state;
+		const { error, isLoaded, results } = this.state;
 		if (error) {
 			return (
 				<div className="contentNight">
@@ -59,7 +53,7 @@ class EclipseContent extends Component {
 		} else if (!isLoaded) {
 			return (
 				<div className="contentNight">
-					<div id="loader"></div>
+					<div id="loader" />
 					<div id="loading">LOADING</div>
 				</div>
 			);
@@ -81,9 +75,10 @@ class EclipseContent extends Component {
 			let eclipseList = results.eclipses_in_year;
 			return (
 				<div className="contentNight">
+					<DateContent date={this.state.year} />
 					<div id="eclipseInYear">Eclipses in {results.year}</div>
 					<div id="eclipseImage">
-						<img src={eclipseImage} alt={'An Eclipse'}/>
+						<img src={eclipseImage} alt={'An Eclipse'} />
 					</div>
 					<ul>
 						{eclipseList.map(result => (
@@ -95,7 +90,7 @@ class EclipseContent extends Component {
 					</ul>
 
 					<div id="eclipseHolder">
-						<ul id="eclipseData"/>
+						<ul id="eclipseData" />
 					</div>
 				</div>
 			);

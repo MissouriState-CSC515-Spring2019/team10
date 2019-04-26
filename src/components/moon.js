@@ -7,18 +7,27 @@ import FullMoon from '../img/5FullMoon.png';
 import WaningGibbous from '../img/6WaningGibbous.png';
 import LastQuarter from '../img/7LastQuarter.png';
 import WaningCrescent from '../img/8WaningCrescent.png';
+import DateContent from './date.js';
 
 class MoonContent extends Component {
 	constructor(props) {
 		super(props);
+		
+		this.state = {
+			error: null,
+			isLoaded: false,
+			results: [],
+			date: null
+		};
+	}
 
-		let urlDate;
+	componentDidMount() {
 		if (this.props.match.params.date !== undefined) {
-			urlDate = this.props.match.params.date;
-			urlDate = urlDate.replace(/-/g, '/');
+			window.urlDate = this.props.match.params.date;
+			window.urlDate = window.urlDate.replace(/-/g, '/');
 		} else {
 			let today = new Date();
-			urlDate =
+			window.urlDate =
 				today.getMonth() +
 				1 +
 				'/' +
@@ -26,35 +35,11 @@ class MoonContent extends Component {
 				'/' +
 				today.getFullYear();
 		}
-		
-		this.state = {
-			error: null,
-			isLoaded: false,
-			results: [],
-			date: urlDate
-		};
-	}
-
-	componentDidMount(props) {
-		// let urlDate;
-		// if (this.props.match.params.date !== undefined) {
-		// 	urlDate = this.props.match.params.date;
-		// 	urlDate = urlDate.replace(/-/g, '/');
-		// } else {
-		// 	let today = new Date();
-		// 	urlDate =
-		// 		today.getMonth() +
-		// 		1 +
-		// 		'/' +
-		// 		today.getDate() +
-		// 		'/' +
-		// 		today.getFullYear();
-		// }
-
-		console.log(this.state.date);
+		let date = window.urlDate;
+		console.log(date);
 		fetch(
 			`https://api.usno.navy.mil/rstt/oneday?date=${
-				this.state.date
+				date
 			}&loc=Springfield,%20Mo`
 		)
 			.then(res => res.json())
@@ -62,7 +47,8 @@ class MoonContent extends Component {
 				results => {
 					this.setState({
 						isLoaded: true,
-						results: results
+						results: results,
+						date: date
 					});
 				},
 				error => {
@@ -130,6 +116,7 @@ class MoonContent extends Component {
 			}
 			return (
 				<div className="contentNight">
+					<DateContent date={this.state.date}/>
 					<div id="moonRise">
 						Moon Rise: {moonRise}
 					</div>

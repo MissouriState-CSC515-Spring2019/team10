@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+//import dateContent from './date';
 
 class Header extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 
 		let today = new Date();
 		let date =
@@ -31,14 +32,18 @@ class Header extends Component {
 
 		this.state = {
 			date: date,
-			longDate: longDate
+			longDate: longDate,
+			date: this.props.date
 		};
+		console.log(this.state.date);
+		
 	}
 
 	render() {
+
 		return (
 			<div className="header">
-				<span id="dateHeader">{this.state.longDate}</span>
+				<span id="dateHeader">{this.state.date}</span>
 			</div>
 		);
 	}

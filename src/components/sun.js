@@ -1,41 +1,26 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import sunImage from '../img/Sun.png';
+import DateContent from './date.js';
 
 class SunContent extends Component {
 	constructor(props) {
 		super(props);
 
-		//let urlDate;
-		// if (this.props.match.params.date !== undefined) {
-		// 	urlDate = this.props.match.params.date;
-		// 	urlDate = urlDate.replace(/-/g, '/');
-		// } else {
-		// 	let today = new Date();
-		// 	urlDate =
-		// 		today.getMonth() +
-		// 		1 +
-		// 		'/' +
-		// 		today.getDate() +
-		// 		'/' +
-		// 		today.getFullYear();
-		// }
-
 		this.state = {
 			error: null,
 			isLoaded: false,
 			results: [],
-			date: []
+			date: '01/01/17'
 		};
 	}
 
-	componentDidMount(props) {
-		let urlDate;
+	componentDidMount() {
 		if (this.props.match.params.date !== undefined) {
-			urlDate = this.props.match.params.date;
-			urlDate = urlDate.replace(/-/g, '/');
+			window.urlDate = this.props.match.params.date;
+			window.urlDate = window.urlDate.replace(/-/g, '/');
 		} else {
 			let today = new Date();
-			urlDate =
+			window.urlDate =
 				today.getMonth() +
 				1 +
 				'/' +
@@ -43,23 +28,18 @@ class SunContent extends Component {
 				'/' +
 				today.getFullYear();
 		}
-
-		this.setState({
-			date: urlDate
-		});
-		console.log(this.state.date);
+		let date = window.urlDate;
 
 		fetch(
-			`https://api.usno.navy.mil/rstt/oneday?date=${
-				this.state.date
-			}&loc=Springfield,%20Mo`
+			`https://api.usno.navy.mil/rstt/oneday?date=${date}&loc=Springfield,%20Mo`
 		)
 			.then(res => res.json())
 			.then(
 				results => {
 					this.setState({
 						isLoaded: true,
-						results: results
+						results: results,
+						date: date
 					});
 				},
 				error => {
@@ -72,7 +52,7 @@ class SunContent extends Component {
 	}
 
 	render() {
-		const {error, isLoaded, results} = this.state;
+		const { error, isLoaded, results } = this.state;
 		if (error) {
 			return (
 				<div className="contentDay">
@@ -82,20 +62,19 @@ class SunContent extends Component {
 		} else if (!isLoaded) {
 			return (
 				<div className="contentDay">
-					<div id="loader"></div>
+					<div id="loader" />
 					<div id="loading">LOADING</div>
 				</div>
 			);
 		} else {
 			return (
 				<div className="contentDay">
+					<DateContent date={this.state.date}/>
 					<div id="sunrise">
 						Sunrise: {results.sundata[1].time.toString().slice(0, -3)}
 					</div>
 					<div id="sunImage">
-						<img src={sunImage} alt={'The Sun'}/>
-						{/* <img src={sunImage} alt={'The Sun'} />
-						<img src={sunImage} alt={'The Sun'} /> */}
+						<img src={sunImage} alt={'The Sun'} />
 					</div>
 					<div id="sunset">
 						Sunset: {results.sundata[3].time.toString().slice(0, -3)}
