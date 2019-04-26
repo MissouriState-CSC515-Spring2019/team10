@@ -7,25 +7,27 @@ import FullMoon from '../img/5FullMoon.png';
 import WaningGibbous from '../img/6WaningGibbous.png';
 import LastQuarter from '../img/7LastQuarter.png';
 import WaningCrescent from '../img/8WaningCrescent.png';
+import DateContent from './date.js';
 
 class MoonContent extends Component {
 	constructor(props) {
 		super(props);
+		
 		this.state = {
 			error: null,
 			isLoaded: false,
-			results: []
+			results: [],
+			date: null
 		};
 	}
 
-	componentDidMount(props) {
-		let urlDate;
+	componentDidMount() {
 		if (this.props.match.params.date !== undefined) {
-			urlDate = this.props.match.params.date;
-			urlDate = urlDate.replace(/-/g, '/');
+			window.urlDate = this.props.match.params.date;
+			window.urlDate = window.urlDate.replace(/-/g, '/');
 		} else {
 			let today = new Date();
-			urlDate =
+			window.urlDate =
 				today.getMonth() +
 				1 +
 				'/' +
@@ -33,18 +35,22 @@ class MoonContent extends Component {
 				'/' +
 				today.getFullYear();
 		}
-
+    
+		let date = window.urlDate;
 		document.title = "Moon Times - " + urlDate;
 
 		fetch(
-			`https://api.usno.navy.mil/rstt/oneday?date=${urlDate}&loc=Springfield,%20Mo`
+			`https://api.usno.navy.mil/rstt/oneday?date=${
+				date
+			}&loc=Springfield,%20Mo`
 		)
 			.then(res => res.json())
 			.then(
 				results => {
 					this.setState({
 						isLoaded: true,
-						results: results
+						results: results,
+						date: date
 					});
 				},
 				error => {
@@ -123,6 +129,7 @@ class MoonContent extends Component {
 
 			return (
 				<div className="contentNight">
+					<DateContent date={this.state.date}/>
 					<div id="moonRise">
 						Moon Rise: {moonRise}
 					</div>
