@@ -23,7 +23,9 @@ class EclipseContent extends Component {
 		}
 		let year = window.urlYear;
 
-		fetch(`https://api.usno.navy.mil/eclipses/solar?year=${year}`)
+		document.title = "Eclipses in " + urlYear;
+
+		fetch(`https://api.usno.navy.mil/eclipses/solar?year=${this.state.year}`)
 			.then(res => res.json())
 			.then(
 				results => {

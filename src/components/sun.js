@@ -30,6 +30,8 @@ class SunContent extends Component {
 		}
 		let date = window.urlDate;
 
+		document.title = "Sun Times - " + urlDate;
+
 		fetch(
 			`https://api.usno.navy.mil/rstt/oneday?date=${date}&loc=Springfield,%20Mo`
 		)
