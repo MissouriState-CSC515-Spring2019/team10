@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import eclipseImage from '../img/Eclipse.png';
+import favIconEclipse from '../img/faviconEclipse.ico';
 
 class EclipseContent extends Component {
 	constructor(props) {
@@ -35,6 +36,22 @@ class EclipseContent extends Component {
 		let year = date.slice(start, dateLen);
 
 		document.title = 'Eclipses in ' + year;
+
+		function change_favicon(img) {
+			let favicon = document.querySelector('link[rel="shortcut icon"]');
+
+			if (!favicon) {
+				favicon = document.createElement('link');
+				favicon.setAttribute('rel', 'shortcut icon');
+				var head = document.querySelector('head');
+				head.appendChild(favicon);
+			}
+
+			favicon.setAttribute('type', 'image/png');
+			favicon.setAttribute('href', img);
+		}
+
+		change_favicon(favIconEclipse);
 
 		fetch(`https://api.usno.navy.mil/eclipses/solar?year=${year}`)
 			.then(res => res.json())

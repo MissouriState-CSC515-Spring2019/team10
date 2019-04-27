@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import sunImage from '../img/Sun.png';
+import favIconSun from '../img/faviconSun.ico';
 
 class SunContent extends Component {
 	constructor(props) {
@@ -30,6 +31,22 @@ class SunContent extends Component {
 		}
 		let date = urlDate;
 		document.title = 'Sun Times - ' + date;
+
+		function change_favicon(img) {
+			let favicon = document.querySelector('link[rel="shortcut icon"]');
+
+			if (!favicon) {
+				favicon = document.createElement('link');
+				favicon.setAttribute('rel', 'shortcut icon');
+				var head = document.querySelector('head');
+				head.appendChild(favicon);
+			}
+
+			favicon.setAttribute('type', 'image/png');
+			favicon.setAttribute('href', img);
+		}
+
+		change_favicon(favIconSun);
 
 		fetch(
 			`https://api.usno.navy.mil/rstt/oneday?date=${date}&loc=Springfield,%20Mo`

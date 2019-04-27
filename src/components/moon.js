@@ -7,6 +7,7 @@ import FullMoon from '../img/5FullMoon.png';
 import WaningGibbous from '../img/6WaningGibbous.png';
 import LastQuarter from '../img/7LastQuarter.png';
 import WaningCrescent from '../img/8WaningCrescent.png';
+import favIconMoon from '../img/faviconMoon.ico';
 
 class MoonContent extends Component {
 	constructor(props) {
@@ -38,6 +39,22 @@ class MoonContent extends Component {
 
 		let date = urlDate;
 		document.title = 'Moon Times - ' + date;
+
+		function change_favicon(img) {
+			let favicon = document.querySelector('link[rel="shortcut icon"]');
+
+			if (!favicon) {
+				favicon = document.createElement('link');
+				favicon.setAttribute('rel', 'shortcut icon');
+				var head = document.querySelector('head');
+				head.appendChild(favicon);
+			}
+
+			favicon.setAttribute('type', 'image/png');
+			favicon.setAttribute('href', img);
+		}
+
+		change_favicon(favIconMoon);
 
 		fetch(
 			`https://api.usno.navy.mil/rstt/oneday?date=${date}&loc=Springfield,%20Mo`
