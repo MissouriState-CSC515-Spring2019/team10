@@ -1,13 +1,15 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 class Header extends Component {
 	constructor(props) {
 		super(props);
 
-		let today = new Date();
-		let date =
-			today.getMonth() + 1 + '-' + today.getDate() + '-' + today.getFullYear();
+		this.state = {
+			date: this.props.date
+		};
+	}
 
+	render() {
 		const monthNames = [
 			'January',
 			'February',
@@ -22,24 +24,16 @@ class Header extends Component {
 			'November',
 			'December'
 		];
-		let longDate =
-			monthNames[today.getMonth()] +
-			' ' +
-			today.getDate() +
-			', ' +
-			today.getFullYear();
 
-		this.state = {
-			date: date,
-			longDate: longDate,
-			date1: this.props.date
-		};
-	}
+		let dateST = this.state.date.split('/');
+		let fullMonth = monthNames[Number(dateST[0]-1)];
+		let fullDay = dateST[1];
+		let fullYear = dateST[2];
+		let fullDate = fullMonth + ' ' + fullDay + ', ' + fullYear;
 
-	render() {
 		return (
 			<div className="header">
-				<span id="dateHeader">{this.state.date1}</span>
+				<span id="dateHeader">{fullDate}</span>
 			</div>
 		);
 	}
