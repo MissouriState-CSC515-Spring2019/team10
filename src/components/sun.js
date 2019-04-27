@@ -15,13 +15,13 @@ class SunContent extends Component {
 	}
 
 	componentDidMount() {
-		
+		let urlDate;
 		if (this.props.match.params.date !== undefined) {
-			window.urlDate = this.props.match.params.date;
-			window.urlDate = window.urlDate.replace(/-/g, '/');
+			urlDate = this.props.match.params.date;
+			urlDate = urlDate.replace(/-/g, '/');
 		} else {
 			let today = new Date();
-			window.urlDate =
+			urlDate =
 				today.getMonth() +
 				1 +
 				'/' +
@@ -29,9 +29,8 @@ class SunContent extends Component {
 				'/' +
 				today.getFullYear();
 		}
-		let date = window.urlDate;
-
-		document.title = "Sun Times - " + date;
+		let date = urlDate;
+		document.title = 'Sun Times - ' + date;
 
 		fetch(
 			`https://api.usno.navy.mil/rstt/oneday?date=${date}&loc=Springfield,%20Mo`
@@ -52,6 +51,7 @@ class SunContent extends Component {
 					});
 				}
 			);
+		this.props.dateF(date);
 	}
 
 	render() {
@@ -72,7 +72,7 @@ class SunContent extends Component {
 		} else {
 			return (
 				<div className="contentDay">
-					<DateContent date={this.state.date}/>
+					{/* <DateContent date={this.state.date}/> */}
 					<div id="sunrise">
 						Sunrise: {results.sundata[1].time.toString().slice(0, -3)}
 					</div>
