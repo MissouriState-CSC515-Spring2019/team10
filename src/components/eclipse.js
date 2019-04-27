@@ -34,7 +34,7 @@ class EclipseContent extends Component {
 		let start = dateLen - 4;
 		let year = date.slice(start, dateLen);
 
-		document.title = 'Eclipses in ' + date;
+		document.title = 'Eclipses in ' + year;
 
 		fetch(`https://api.usno.navy.mil/eclipses/solar?year=${year}`)
 			.then(res => res.json())
