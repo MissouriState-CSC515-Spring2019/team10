@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import eclipseImage from '../img/Eclipse.png';
-import DateContent from './date.js';
 
 class EclipseContent extends Component {
 	constructor(props) {
@@ -10,29 +9,41 @@ class EclipseContent extends Component {
 			error: null,
 			isLoaded: false,
 			results: [],
-			year: null
+			date: null
 		};
 	}
 
 	componentDidMount() {
-		if (this.props.match.params.year !== undefined) {
-			window.urlYear = this.props.match.params.year;
+		let urlDate;
+		if (this.props.match.params.date !== undefined) {
+			urlDate = this.props.match.params.date;
+			urlDate = urlDate.replace(/-/g, '/');
 		} else {
 			let today = new Date();
-			window.urlYear = today.getFullYear();
+			urlDate =
+				today.getMonth() +
+				1 +
+				'/' +
+				today.getDate() +
+				'/' +
+				today.getFullYear();
 		}
-		let year = window.urlYear;
+		let date = urlDate;
 
-		document.title = "Eclipses in " + year;
+		let dateLen = date.length;
+		let start = dateLen - 4;
+		let year = date.slice(start, dateLen);
 
-		fetch(`https://api.usno.navy.mil/eclipses/solar?year=${this.state.year}`)
+		document.title = 'Eclipses in ' + date;
+
+		fetch(`https://api.usno.navy.mil/eclipses/solar?year=${year}`)
 			.then(res => res.json())
 			.then(
 				results => {
 					this.setState({
 						isLoaded: true,
 						results: results,
-						year: year
+						date: date
 					});
 				},
 				error => {
@@ -42,6 +53,7 @@ class EclipseContent extends Component {
 					});
 				}
 			);
+		this.props.dateF(date);
 	}
 
 	render() {
@@ -77,7 +89,6 @@ class EclipseContent extends Component {
 			let eclipseList = results.eclipses_in_year;
 			return (
 				<div className="contentNight">
-					<DateContent date={this.state.year} />
 					<div id="eclipseInYear">Eclipses in {results.year}</div>
 					<div id="eclipseImage">
 						<img src={eclipseImage} alt={'An Eclipse'} />
