@@ -24,5 +24,6 @@ module.exports = {
             .assert.containsText('div[id=eclipseInYear]', 'Eclipses')
 
             .end();
+        
     }
 };
