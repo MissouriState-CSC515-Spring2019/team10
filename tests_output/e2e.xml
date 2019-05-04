@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="1"
+            failures="0"
+            tests="0">
+
+  <testsuite name="e2e"
+    errors="1" failures="0" hostname="" id="" package="e2e" skipped="1"
+    tests="0" time="0.000" timestamp="">
+  
+
+  
+
+  
+    
+    <testcase
+      name="Demo test" classname="e2e">
+      <skipped />
+    </testcase>
+    
+  
+  </testsuite>
+</testsuites>
