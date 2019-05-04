@@ -19,6 +19,10 @@ module.exports = {
             .assert.containsText('div[id=sunset]', 'Sunset')
             .assert.containsText('div[id=sunset]', 'p.m.')
 
+            .click('button[id=nav-right-button')
+            .pause(1000)
+            .assert.containsText('div[id=eclipseInYear]', 'Eclipses')
+
             .end();
     }
 };
