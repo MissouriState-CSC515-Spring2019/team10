@@ -32,7 +32,7 @@ a. `npm audit fix` (if npm install finds vulnerabilities)
 1. `nightwatch` (to run test suite)
 Alternatively:
 2. `nightwatch tests/e2e.js` (to run end to end test)
-3. `nightwatch unit-test/e2e.js` (to run unit test (doesn't work, oops))
+3. `nightwatch tests/unit-test.js` (to run unit test (doesn't work, oops))
 
 ---
 ### Progress
