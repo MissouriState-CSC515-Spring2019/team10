@@ -1,12 +1,16 @@
-var assert = require('assert');
+const MoonContent = require("../src/components/moon");
+const React = require("react");
+const expect = require('expect');
+
 module.exports = {
     '@unitTest' : true,
 
+    'demo UnitTest' : function () {
+        const component = MoonContent.create(
 
-    'demo UnitTest' : function (done) {
-        assert.equal('TEST', 'TEST');
-        setTimeout(function() {
-            done();
-        }, 10);
+        );
+        const instance = component.getInstance();
+
+        expect(instance.state.counter).toBe(0)
     }
 };
