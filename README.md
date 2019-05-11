@@ -28,6 +28,13 @@ a. `npm audit fix` (if npm install finds vulnerabilities)
 2. `npm start` (to run React)
 
 ---
+### How To Run Tests
+1. `nightwatch` (to run test suite)
+Alternatively:
+2. `nightwatch tests/e2e.js` (to run end to end test)
+3. `nightwatch unit-test/e2e.js` (to run unit test (doesn't work, oops))
+
+---
 ### Progress
 - [X] April 12 - Teams finalized and project decided.
 - [X] April 19 - Framework selected. Base project structure and tooling decided.

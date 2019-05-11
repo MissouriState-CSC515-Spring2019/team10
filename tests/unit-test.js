@@ -5,9 +5,9 @@ const expect = require('expect');
 module.exports = {
     '@unitTest' : true,
 
-    'demo UnitTest' : function (done) {
+    'demo UnitTest' : function () {
         const component = MoonContent.create(
-            <div></div>
+
         );
         const instance = component.getInstance();
 

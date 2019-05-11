@@ -5,9 +5,9 @@
 
   <testsuite name="e2e"
     errors="0" failures="0" hostname="" id="" package="e2e" skipped="0"
-    tests="1" time="3.848" timestamp="">
+    tests="1" time="3.847" timestamp="">
   
-    <testcase name="e2e test" classname="e2e" time="3.848" assertions="10">
+    <testcase name="e2e test" classname="e2e" time="3.847" assertions="10">
 
     
 
@@ -31,6 +31,24 @@
     </testcase>
   
 
+  
+    <system-err>
+      [0;31m  Unexpected identifier[0m
+[0;90m   (function (exports, require, module, __filename, __dirname) { import React, { Component } from &#39;react&#39;;
+                                                                        ^^^^^
+   
+   SyntaxError: Unexpected identifier
+       at new Script (vm.js:79:7)
+       at createScript (vm.js:251:10)
+       at Object.runInThisContext (vm.js:303:10)
+       at Module._compile (internal/modules/cjs/loader.js:657:28)
+       at Object.Module._extensions..js (internal/modules/cjs/loader.js:700:10)
+       at Module.load (internal/modules/cjs/loader.js:599:32)
+       at tryModuleLoad (internal/modules/cjs/loader.js:538:12)
+       at Function.Module._load (internal/modules/cjs/loader.js:530:3)
+       at Module.require (internal/modules/cjs/loader.js:637:17)
+       at require (internal/modules/cjs/helpers.js:20:18)[0m
+    </system-err>
   
 
   
